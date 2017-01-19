@@ -1,0 +1,8 @@
+title: Mcom
+description: Mcom  is the open-source eCommerce solution develop using mean stack
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-architect
+
+gems:
+  - jekyll-mentions
