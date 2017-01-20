@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link } from 'react-router';
 
 const SideBar = () => (
   <div className="col-md-3 left_col">
@@ -35,13 +36,14 @@ const SideBar = () => (
               </a>
               <ul className="nav child_menu">
                 <li>
-                  <a href="index.html">Dashboard</a>
+                 <Link to='/'>Dashboard</Link>
                 </li>
                 <li>
-                  <a href="index2.html">Dashboard2</a>
+                <Link to='/Homepage2'>Dashboard2</Link>
+                
                 </li>
                 <li>
-                  <a href="index3.html">Dashboard3</a>
+                     <Link to='/Homepage3'>Dashboard2</Link>
                 </li>
               </ul>
             </li>
