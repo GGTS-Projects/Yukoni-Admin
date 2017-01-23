@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const config = require('./server/config');
 
 
-require('./server/models').connect(config.dbUri);
+//require('./server/models').connect(config.dbUri);
 
 const app = express();
 // tell the app to look for static files in these directories

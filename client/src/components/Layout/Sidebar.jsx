@@ -55,7 +55,7 @@ const SideBar = () => (
               </a>
               <ul className="nav child_menu">
                 <li>
-                  <a href="form.html">General Form</a>
+                 <Link to='/GeneralForm'>General Form</Link>
                 </li>
                 <li>
                   <a href="form_advanced.html">Advanced Components</a>
