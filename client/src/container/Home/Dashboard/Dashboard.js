@@ -1,16 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-class HomePage extends React.Component {
-  static propTypes = {
+const Dashboard = () => (
+  <div>
+    Dashboard
+  </div>
+);
 
-  }
-  render = () => (
-    <div>
-      HomePage
-    </div>
-  )
-}
+Dashboard.propTypes = {
+
+};
 
 const mapStateToProps = state => ({
 
@@ -23,4 +22,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomePage);
+)(Dashboard);
