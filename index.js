@@ -16,14 +16,23 @@ var app = express();
 app.use(express.static('./server/static/'));
 app.use(express.static('./client/dist/'));
 app.use(cookieParser());
-app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
+// required for passport
+app.use(session({
+    secret: 'ilovescotchscotchyscotchscotch', // session secret
+    resave: true,
+    saveUninitialized: true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 const routes = require ('./server/routes/index.js');
  app.use('/', routes);
+ require('./server/routes/auth.js')(app, passport);
+
 // start the server
 app.listen(3000, () => {
   console.log('Server is running on http://localhost:3000 or http://127.0.0.1:3000');

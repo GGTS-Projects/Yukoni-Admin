@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt   = require('bcrypt-nodejs');
 
 
 // define the User model schema
@@ -25,8 +26,15 @@ const UserSchema = new mongoose.Schema({
 /**
  * Methods
  */
-UserSchema.method({
-});
+// generating a hash
+UserSchema.methods.generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+// checking if password is valid
+UserSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.local.password);
+};
 
 /**
  * Statics

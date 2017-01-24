@@ -4,7 +4,7 @@
   "description": "Yukoni [MERN Stack Project Template]",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --use_strict index.js",
+    "start": "nodemon  index.js",
     "bundle": "webpack"
   },
   "repository": {
@@ -14,7 +14,7 @@
   "author": "Umar Abbas [omer.ith@gmail.com]",
   "license": "MIT",
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
+    "bcrypt-nodejs": "latest",
     "body-parser": "^1.15.2",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
