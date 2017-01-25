@@ -1,9 +1,9 @@
 import Base from '../components/Layout/Base.jsx';
-import HomePage from '../components/Home/HomePage.jsx';
-import HomePage2 from '../components/Home/HomePage2.jsx';
-import HomePage3 from '../components/Home/HomePage3.jsx';
+import HomePage from '../components/Home/Dashboard.jsx';
+import HomePage2 from '../components/Home/Dashboard2.jsx';
+import HomePage3 from '../components/Home/Dashboard3.jsx';
 import GeneralForm from '../components/Forms/GeneralForm.jsx';
-import LoginForm from '../components/Account/LoginPage.jsx';
+import LoginForm from '../components/Account/login.jsx';
 const routes = {
   // base component (wrapper for the whole application).
   component: Base,

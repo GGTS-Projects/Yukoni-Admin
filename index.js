@@ -1,37 +1,32 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const config = require('./server/config');
 const passport = require('passport');
+const config = require('./server/config');
 
-const session = require('express-session');
-const mongoose = require('mongoose');
-var flash    = require('connect-flash');
-var morgan       = require('morgan');
-var cookieParser = require('cookie-parser');
-//
 require('./server/models').connect(config.dbUri);
-
 var app = express();
-// tell the app to look for static files in these directories
+
 app.use(express.static('./server/static/'));
 app.use(express.static('./client/dist/'));
-app.use(cookieParser());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
 
-// required for passport
-app.use(session({
-    secret: 'ilovescotchscotchyscotchscotch', // session secret
-    resave: true,
-    saveUninitialized: true
-}));
+app.use(bodyParser.urlencoded({ extended: false }));
+// pass the passport middleware
 app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash()); // use connect-flash for flash messages stored in session
 
+// load passport strategies
+const localSignupStrategy = require('./server/config/passport/local-signup');
+const localLoginStrategy = require('./server/config/passport/local-login');
+passport.use('local-signup', localSignupStrategy);
+passport.use('local-login', localLoginStrategy);
+
+//Routes
+// const authCheckMiddleware = require('./server/config/passport/auth-check');
+// app.use('/api', authCheckMiddleware);
+
+//require('./server/routes/auth.js')(app, passport);
 const routes = require ('./server/routes/index.js');
  app.use('/', routes);
- require('./server/routes/auth.js')(app, passport);
+//  
 
 // start the server
 app.listen(3000, () => {
