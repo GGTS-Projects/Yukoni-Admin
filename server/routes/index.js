@@ -2,7 +2,7 @@ const express = require('express');
 const validator = require('validator');
 const passport = require('passport');
 const userRoutes  = require('./userRoute.js');
-//const authRoutes  = require('./auth.js');
+const postRoutes  = require('./postRoute.js');
 // import authRoutes from './auth.route'; 
 
 const router = express.Router(); // eslint-disable-line new-cap
@@ -19,6 +19,7 @@ router.get('/health-check', (req, res) =>
  * @returns {object} The result of validation. Object contains a boolean validation result,
  *                   errors tips, and a global message for the whole form.
  */
+
 function validateSignupForm(payload) {
   const errors = {};
   let isFormValid = true;
@@ -160,7 +161,7 @@ router.post('/login', (req, res, next) => {
 // mount user routes at /users
 router.use('/users', userRoutes);
 //auth routes
-//router.use('/', authRoutes);
+router.use('/posts', postRoutes);
 
 // mount auth routes at /auth
 //router.use('/auth', authRoutes);
