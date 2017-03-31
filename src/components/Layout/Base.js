@@ -10,9 +10,9 @@ import {
   MenuItem,
   Button
 } from 'react-bootstrap';
-import TopNav from './TopNav.jsx';
-import Sidebar from './Sidebar.jsx';
-import Footer from './Footer.jsx';
+import TopNav from './TopNav.js';
+import Sidebar from './Sidebar.js';
+import Footer from './Footer.js';
 
 const Base = ({children}) => (
   <div className="main_container">
